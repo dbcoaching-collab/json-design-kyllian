@@ -1,0 +1,4002 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Fitness Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+/* ===== PREMIUM DARK FITNESS COACHING DESIGN SYSTEM ===== */
+:root {
+    --color-bg-primary: #000000;
+    --color-bg-surface: #111111;
+    --color-bg-surface-secondary: #1a1a1a;
+    --color-accent-gold: #d4af37;
+    --color-accent-gold-hover: #b8941f;
+    
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-text-muted: #888888;
+    --color-text-accent: #d4af37;
+    
+    --color-button-primary: #d4af37;
+    --color-button-primary-hover: #b8941f;
+    --color-button-outline: rgba(212, 175, 55, 0.2);
+    --color-tab-active: #333333;
+    --color-tab-inactive: transparent;
+    
+    --font-family-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    --spacing-xxl: 8rem;
+    
+    --transition-default: all 0.3s ease;
+    --transition-hover: transform 0.3s ease;
+    --transition-fade: opacity 0.5s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth scroll pro navigační odkazy */
+.nav-link {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    overflow-x: hidden;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.service-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-subtitle {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.main-content {
+    margin-left: 0;
+    margin-top: 80px;
+}
+
+.sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 var(--spacing-md);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    margin-right: var(--spacing-lg);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition-default);
+    position: relative;
+    border-radius: 4px;
+}
+
+.nav-link:hover {
+    color: var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.nav-link.active {
+    color: var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.nav-label {
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nav-language {
+    margin-left: var(--spacing-md);
+}
+
+.language-toggle {
+    background: transparent;
+    border: 1px solid var(--color-accent-gold);
+    color: var(--color-accent-gold);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-default);
+    border-radius: 4px;
+}
+
+.language-toggle:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+}
+
+.hero-section {
+    display: flex;
+    height: calc(100vh - 80px);
+    min-height: 600px;
+}
+
+.hero-left {
+    width: 40%;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-primary);
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.hero-right {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-content {
+    text-align: center;
+}
+
+.overlay-text {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.btn {
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 0;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-default);
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--color-button-primary);
+    color: var(--color-bg-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-button-primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-accent-gold);
+    border: 2px solid var(--color-accent-gold);
+}
+
+.btn-secondary:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+}
+
+.services-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-surface);
+}
+
+.services-tabs {
+    margin-top: var(--spacing-xl);
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-tab-inactive);
+    border: 1px solid #333;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition-default);
+    margin-right: -1px;
+}
+
+.tab:hover {
+    background: var(--color-tab-active);
+    color: var(--color-text-primary);
+}
+
+.tab.active {
+    background: var(--color-tab-active);
+    color: var(--color-text-primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.service-card {
+    display: flex;
+    background: var(--color-bg-surface-secondary);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.service-image {
+    width: 40%;
+    aspect-ratio: 4/3;
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.service-content {
+    width: 60%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg-surface);
+}
+
+.service-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-features li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-gold);
+    font-weight: var(--font-weight-bold);
+}
+
+.about-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-primary);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-description {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent-gold);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-image .image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.testimonials-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-surface);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.testimonial-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 100%;
+}
+
+.testimonial-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.testimonial-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        transparent 100%
+    );
+    padding: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.testimonial-quote {
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.testimonial-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author-name {
+    color: var(--color-accent-gold);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    color: var(--color-accent-gold);
+    font-size: 1.2rem;
+}
+
+.transformations-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-primary);
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.transformation-slide {
+    display: none;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.transformation-slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.transformation-card {
+    background: var(--color-bg-surface);
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.before-after-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.before-image,
+.after-image {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+}
+
+.before-image .image-placeholder,
+.after-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    filter: grayscale(100%) contrast(1.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-label {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.transformation-info {
+    text-align: center;
+}
+
+.transformation-name {
+    color: var(--color-accent-gold);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.transformation-details {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.slideshow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-accent-gold);
+    border: 2px solid var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: var(--transition-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.slideshow-btn:hover {
+    background: var(--color-bg-primary);
+    color: var(--color-accent-gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.slideshow-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+.slide-indicators {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-text-muted);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.indicator.active,
+.indicator:hover {
+    background: var(--color-accent-gold);
+    transform: scale(1.2);
+}
+
+.ebooks-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-surface);
+}
+
+.ebooks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ebook-card {
+    display: flex;
+    background: var(--color-bg-surface-secondary);
+    overflow: hidden;
+    transition: var(--transition-default);
+}
+
+.ebook-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ebook-image {
+    width: 150px;
+    height: 200px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ebook-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    position: relative;
+}
+
+.ebook-overlay {
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    background: var(--color-bg-primary);
+    color: var(--color-accent-gold);
+    padding: var(--spacing-xs);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+}
+
+.ebook-content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ebook-title {
+    color: var(--color-accent-gold);
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ebook-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+}
+
+.contact-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-bg-primary);
+}
+
+/* ===== FOOTER UPDATES - Vycentrování kontaktů a snížení výšky ===== */
+
+/* Hlavní footer kontejner - snížení paddingu pro menší výšku */
+.footer {
+    background: var(--color-bg-surface-secondary);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md); /* Změněno z xl na lg */
+    border-top: 1px solid #333;
+}
+
+/* Footer content grid - zachování stávajícího layoutu */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md); /* Změněno z lg na md pro menší mezeru */
+}
+
+/* Footer sekce - vycentrování pro kontakt sekci */
+.footer-section {
+    text-align: left; /* Změněno z center na left pro lepší zarovnání */
+}
+
+/* Footer nadpisy - snížení spodního marginu */
+.footer-title {
+    color: var(--color-accent-gold);
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm); /* Změněno z md na sm */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* První sekce (KONTAKT) - vycentrování obsahu */
+.footer-section:first-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-section:first-child .footer-title {
+    text-align: center;
+}
+
+.footer-section:first-child .footer-links {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Footer odkazy - kompaktnější layout */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs); /* Změněno z sm na xs pro menší mezery */
+}
+
+.footer-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    transition: var(--transition-default);
+    padding: var(--spacing-xs) 0;
+    margin-bottom: var(--spacing-xs); /* Sníženo z sm na xs */
+    text-align: left;
+}
+
+.footer-link:hover {
+    color: var(--color-accent-gold);
+}
+
+.footer-label {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: var(--font-weight-medium);
+}
+
+.footer-value {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.footer-link:hover .footer-value {
+    color: var(--color-accent-gold);
+}
+
+/* Speciální styling pro kontakt sekci - vycentrování */
+.footer-section:first-child .footer-link {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-icon {
+    font-size: 1.2rem;
+}
+
+.footer-address {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.map-container {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2px solid #333;
+}
+
+/* Footer bottom - snížení paddingu */
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-sm); /* Změněno z md na sm */
+    border-top: 1px solid #333;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+
+
+/* Map sekce - snížení paddingu */
+.footer-map-section {
+    margin-top: var(--spacing-sm); /* Změněno z md na sm */
+    padding-top: var(--spacing-sm); /* Změněno z md na sm */
+    border-top: 1px solid #333;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footer-map-section .footer-title {
+    text-align: center;
+    margin-bottom: var(--spacing-sm); /* Změněno z md na sm */
+}
+
+.map-container-full {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    border-radius: 0;
+    overflow: hidden;
+    border: none;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+.map-container-full iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+/* Mobile responsiveness - zachování funkčnosti */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center; /* Vycentrování na mobilu */
+        max-width: 100%;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-section {
+        text-align: center; /* Všechny sekce vycentrované na mobilu */
+        max-width: 100%;
+        justify-self: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .footer-section:first-child {
+        text-align: center !important;
+    }
+    
+    .footer-section:last-child {
+        text-align: center !important;
+    }
+    
+    .footer-section:first-child .footer-link {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .map-container-full iframe {
+        height: 250px;
+    }
+    
+    .footer-map-section {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .map-container-full {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+    }
+}
+
+.purchase-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-bg-surface);
+    border: 2px solid var(--color-accent-gold);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    min-width: 300px;
+    z-index: 2000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.purchase-popup.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    position: relative;
+}
+
+.popup-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.popup-text {
+    flex: 1;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.popup-name {
+    color: var(--color-accent-gold);
+    font-weight: var(--font-weight-bold);
+}
+
+.popup-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    padding-right: var(--spacing-lg);
+}
+
+.contact-description {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-details {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent-gold);
+    flex-shrink: 0;
+}
+
+.contact-form {
+    background: var(--color-bg-surface);
+    padding: var(--spacing-lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: var(--color-bg-primary);
+    border: 1px solid #333;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition-default);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent-gold);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-input option {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+/* Floating Social Buttons */
+.floating-instagram {
+    position: fixed;
+    bottom: 100px; /* Above WhatsApp button */
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(225, 48, 108, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-instagram:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(225, 48, 108, 0.6);
+}
+
+.floating-instagram svg {
+    width: 32px;
+    height: 32px;
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.floating-whatsapp svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+
+@media (max-width: 768px) {
+    .floating-instagram,
+    .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+    }
+    
+    .floating-instagram {
+        bottom: 80px;
+    }
+    
+    .floating-whatsapp {
+        bottom: 20px;
+    }
+    
+    .floating-instagram svg,
+    .floating-whatsapp svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background: var(--color-bg-surface);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    border: 2px solid var(--color-accent-gold);
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.modal-overlay.show .modal-container {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-bg-primary);
+}
+
+.modal-title {
+    color: var(--color-accent-gold);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-default);
+}
+
+.modal-close:hover {
+    color: var(--color-accent-gold);
+}
+
+.modal-body {
+    padding: var(--spacing-lg);
+}
+
+.questionnaire-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.questionnaire-form .form-label {
+    display: block;
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+}
+
+.questionnaire-form .form-input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-bg-primary);
+    border: 2px solid #333;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition-default);
+    border-radius: 4px;
+}
+
+.questionnaire-form .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.questionnaire-form .form-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.questionnaire-form textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.questionnaire-form select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 3rem;
+}
+
+.questionnaire-form select.form-input option {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    padding: 0.5rem;
+}
+
+.form-actions {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #333;
+    margin-top: var(--spacing-lg);
+}
+
+.success-container {
+    max-width: 500px;
+}
+
+.success-content {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto var(--spacing-md);
+}
+
+.success-title {
+    color: var(--color-accent-gold);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.success-message {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Language switching utilities */
+.lang-cz { display: inline; }
+.lang-en { display: none; }
+.lang-en-active .lang-cz { display: none; }
+.lang-en-active .lang-en { display: inline; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+    
+    .hero-left {
+        padding: var(--spacing-lg) var(--spacing-md);
+        order: 2;
+    }
+    
+    .hero-right {
+        order: 1;
+        height: 50vh;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-stats {
+        justify-content: center;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .contact-info {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-nav {
+        height: 70px;
+    }
+    
+    .main-content {
+        margin-top: 70px;
+    }
+    
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: url('background-photo.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(100%);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding-right: 3rem;
+        padding-left: 0;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-container::after {
+        content: "☰ menu";
+        color: var(--color-accent-gold);
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: auto;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        text-transform: lowercase;
+    }
+    
+    .nav-container:active::after {
+        content: "✕";
+    }
+    
+    .nav-label {
+        font-size: 0.7rem;
+    }
+    
+    .nav-link {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+        text-align: center;
+        width: auto;
+    }
+    
+    .close-menu {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1001;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        line-height: 1;
+    }
+    
+    .close-menu:hover {
+        color: var(--color-accent-gold);
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .nav-logo {
+        margin-right: var(--spacing-sm);
+    }
+    
+    /* Skryj bílou tečku */
+    .nav-logo {
+        display: none;
+    }
+    
+
+    
+    /* Skryj první nav-item (Domů) */
+    .nav-item:first-child {
+        display: none;
+    }
+    
+    /* Když je menu aktivní, skryj floating tlačítka */
+    body:has(.nav-menu.active) .floating-whatsapp,
+    body:has(.nav-menu.active) .floating-instagram {
+        display: none;
+    }
+    
+    /* Alternativně - nižší z-index pro tlačítka */
+    .floating-whatsapp,
+    .floating-instagram {
+        z-index: 999; /* menu má z-index 1000 */
+    }
+    
+    .before-after-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .transformation-card {
+        padding: var(--spacing-md);
+    }
+    
+    .slideshow-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .slideshow-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .prev-btn {
+        left: 10px;
+    }
+    
+    .next-btn {
+        right: 10px;
+    }
+    
+    .transformation-name {
+        font-size: 1.2rem;
+    }
+    
+    .transformation-details {
+        font-size: 0.9rem;
+    }
+    
+    .ebooks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ebook-card {
+        flex-direction: column;
+    }
+    
+    .ebook-image {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .purchase-popup {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+    }
+    
+
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .service-card {
+        flex-direction: column;
+    }
+    
+    .service-image,
+    .service-content {
+        width: 100%;
+    }
+    
+    .service-image {
+        height: 250px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .tab-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .tab {
+        margin-right: 0;
+        margin-bottom: -1px;
+        text-align: center;
+    }
+    
+    .modal-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 2px;
+    }
+    
+    .nav-label {
+        font-size: 0.65rem;
+    }
+    
+    .nav-link {
+        padding: 3px 4px;
+    }
+    
+    .slideshow-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .contact-form {
+        padding: var(--spacing-md);
+    }
+    
+    .ebook-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .ebook-title {
+        font-size: 1rem;
+    }
+    
+    .ebook-description {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.service-card {
+    transition: var(--transition-default);
+}
+
+.service-card:hover {
+    transform: scale(1.02);
+}
+
+.testimonial-card {
+    transition: var(--transition-default);
+}
+
+.testimonial-card:hover {
+    transform: scale(1.02);
+}
+
+.testimonial-card:hover .image-placeholder {
+    transform: scale(1.05);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--color-accent-gold);
+}
+
+.bg-surface {
+    background: var(--color-bg-surface);
+}
+
+.bg-surface-secondary {
+    background: var(--color-bg-surface-secondary);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-gold);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-gold-hover);
+}
+
+/* ===== STICKY LANGUAGE SWITCHER ===== */
+.nav-language {
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 998;
+}
+
+.language-toggle {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.language-toggle:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+.language-toggle.active {
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+    </style>
+</head>
+<body>
+    <!-- Vertical Sidebar Navigation -->
+    <nav class="sidebar-nav">
+        <div class="nav-container" onclick="toggleMobileMenu()">
+            <div class="nav-logo">
+                <div class="logo-icon">F</div>
+            </div>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <ul class="nav-menu mobile-menu" onclick="toggleMobileMenu()">
+                <div class="close-menu" onclick="closeMobileMenu()">✕</div>
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <span class="nav-label">
+                            <span class="lang-cz">Domů</span>
+                            <span class="lang-en">Home</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-section="services">
+                        <span class="nav-label">
+                            <span class="lang-cz">Služby</span>
+                            <span class="lang-en">Services</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <span class="nav-label">
+                            <span class="lang-cz">O mně</span>
+                            <span class="lang-en">About</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transformations" class="nav-link" data-section="transformations">
+                        <span class="nav-label">
+                            <span class="lang-cz">Transformace</span>
+                            <span class="lang-en">Transformations</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link" data-section="testimonials">
+                        <span class="nav-label">
+                            <span class="lang-cz">Recenze</span>
+                            <span class="lang-en">Reviews</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ebooks" class="nav-link" data-section="ebooks">
+                        <span class="nav-label">
+                            <span class="lang-cz">Ebooky</span>
+                            <span class="lang-en">Ebooks</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#faq" class="nav-link" data-section="faq">
+                        <span class="nav-label">
+                            <span class="lang-cz">FAQ</span>
+                            <span class="lang-en">FAQ</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#footer" class="nav-link" data-section="footer">
+                        <span class="nav-label">
+                            <span class="lang-cz">Kontakt</span>
+                            <span class="lang-en">Contact</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section - Split Screen Layout -->
+        <section id="home" class="hero-section">
+            <div class="hero-left">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="lang-cz">TRANSFORMUJTE SVÉ TĚLO</span>
+                        <span class="lang-en">TRANSFORM YOUR BODY</span>
+                    </h1>
+                    <p class="hero-description">
+                        <span class="lang-cz">
+                            Elitní fitness coaching navržený pro sportovce, kteří vyžadují výsledky. 
+                            Personalizované programy, odborné vedení a ověřené metodologie 
+                            k uvolnění vašeho plného potenciálu.
+                        </span>
+                        <span class="lang-en">
+                            Elite fitness coaching designed for athletes who demand results. 
+                            Personalized programs, expert guidance, and proven methodologies 
+                            to unlock your full potential.
+                        </span>
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary">
+                            <span class="lang-cz">ZAČNĚTE SVOU CESTU</span>
+                            <span class="lang-en">START YOUR JOURNEY</span>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span class="lang-cz">ZOBRAZIT PROGRAMY</span>
+                            <span class="lang-en">VIEW PROGRAMS</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-container">
+                    <div class="hero-image-placeholder">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-text">
+                                    <span class="lang-cz">PRÉMIOVÝ KOUČINK</span>
+                                    <span class="lang-en">PREMIUM COACHING</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-cz">SLUŽBY</span>
+                    <span class="lang-en">SERVICES</span>
+                </h2>
+                <div class="services-tabs">
+                    <div class="tab-container">
+                        <button class="tab active" data-tab="online-coaching">
+                            <span class="lang-cz">KOMPLETNÍ ONLINE COACHING</span>
+                            <span class="lang-en">COMPLETE ONLINE COACHING</span>
+                        </button>
+                        <button class="tab" data-tab="kickstart">
+                            <span class="lang-cz">KICKSTART PLÁN NA MÍRU</span>
+                            <span class="lang-en">CUSTOM KICKSTART PLAN</span>
+                        </button>
+                        <button class="tab" data-tab="personal-praha">
+                            <span class="lang-cz">OSOBNÍ TRÉNINKY - PRAHA 1</span>
+                            <span class="lang-en">PERSONAL TRAINING - PRAGUE 1</span>
+                        </button>
+                        <button class="tab" data-tab="couple-training">
+                            <span class="lang-cz">PÁROVÉ OSOBNÍ TRÉNINKY</span>
+                            <span class="lang-en">COUPLE PERSONAL TRAINING</span>
+                        </button>
+                    </div>
+                    
+                    <div class="tab-content active" data-tab="online-coaching">
+                        <div class="service-card">
+                            <div class="service-image">
+                                <div class="image-placeholder"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">
+                                    <span class="lang-cz">KOMPLETNÍ ONLINE COACHING</span>
+                                    <span class="lang-en">COMPLETE ONLINE COACHING</span>
+                                </h3>
+                                <p class="service-description">
+                                    <span class="lang-cz">
+                                        Kompletní online fitness coaching s personalizovanými tréninkovými plány, výživovým poradenstvím a neustálou podporou. Ideální pro ty, kteří chtějí dosáhnout svých cílů z pohodlí domova s profesionálním vedením a pravidelnými úpravami plánů.
+                                    </span>
+                                    <span class="lang-en">
+                                        Fully personalized online coaching with ongoing adjustments and custom routines. Get a complete fitness transformation with continuous support, personalized workout plans, nutrition guidance, and regular check-ins to ensure you stay on track and achieve your goals.
+                                    </span>
+                                </p>
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="lang-cz">Personalizované tréninkové plány</span>
+                                        <span class="lang-en">Personalized training plans</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Neustálé úpravy a optimalizace</span>
+                                        <span class="lang-en">Ongoing adjustments and optimization</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Výživové poradenství</span>
+                                        <span class="lang-en">Nutrition counseling</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">24/7 online podpora</span>
+                                        <span class="lang-en">24/7 online support</span>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="openQuestionnaire('online-coaching')">
+                                    <span class="lang-cz">ZAČÍT ONLINE COACHING</span>
+                                    <span class="lang-en">START ONLINE COACHING</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" data-tab="kickstart">
+                        <div class="service-card">
+                            <div class="service-image">
+                                <div class="image-placeholder"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">
+                                    <span class="lang-cz">KICKSTART PLÁN NA MÍRU</span>
+                                    <span class="lang-en">CUSTOM KICKSTART PLAN</span>
+                                </h3>
+                                <p class="service-description">
+                                    <span class="lang-cz">
+                                        Jednorázový fitness plán navržený na míru vašim cílům bez pokračujících úprav. Ideální pro samostatné jedince, kteří chtějí personalizovanou fitness roadmapu, ale preferují pracovat nezávisle po obdržení počátečního plánu.
+                                    </span>
+                                    <span class="lang-en">
+                                        One-time fitness plan designed specifically for your goals without ongoing adjustments. Perfect for independent individuals who want a personalized fitness roadmap but prefer to work independently after receiving their initial plan.
+                                    </span>
+                                </p>
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="lang-cz">Jednorázový plán na míru</span>
+                                        <span class="lang-en">One-time custom plan</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Bez pokračujících úprav</span>
+                                        <span class="lang-en">No ongoing adjustments</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Kompletní fitness roadmapa</span>
+                                        <span class="lang-en">Complete fitness roadmap</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Pro samostatné jedince</span>
+                                        <span class="lang-en">For independent individuals</span>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="openQuestionnaire('kickstart')">
+                                    <span class="lang-cz">ZAČÍT KICKSTART</span>
+                                    <span class="lang-en">START KICKSTART</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" data-tab="personal-praha">
+                        <div class="service-card">
+                            <div class="service-image">
+                                <div class="image-placeholder"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">
+                                    <span class="lang-cz">OSOBNÍ TRÉNINKY - PRAHA 1</span>
+                                    <span class="lang-en">PERSONAL TRAINING - PRAGUE 1</span>
+                                </h3>
+                                <p class="service-description">
+                                    <span class="lang-cz">
+                                        Hodinové osobní tréninky v posilovně Form Factory na Václavském náměstí. Zažijte individuální pozornost v prémiové lokalitě s moderním vybavením, flexibilním rozvrhem a odborným vedením pro maximalizaci vašich výsledků v srdci Prahy.
+                                    </span>
+                                    <span class="lang-en">
+                                        Individual hourly training sessions at Form Factory gym on Wenceslas Square. Experience personalized attention in a premium location with modern equipment, flexible scheduling, and expert guidance to maximize your results in the heart of Prague.
+                                    </span>
+                                </p>
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="lang-cz">Hodinové tréninky</span>
+                                        <span class="lang-en">Hourly training sessions</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Form Factory - Václavské náměstí</span>
+                                        <span class="lang-en">Form Factory - Wenceslas Square</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Individuální pozornost</span>
+                                        <span class="lang-en">Individual attention</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Flexibilní rozvrh</span>
+                                        <span class="lang-en">Flexible scheduling</span>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="openQuestionnaire('personal-praha')">
+                                    <span class="lang-cz">REZERVOVAT TRÉNINK</span>
+                                    <span class="lang-en">BOOK TRAINING</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" data-tab="couple-training">
+                        <div class="service-card">
+                            <div class="service-image">
+                                <div class="image-placeholder"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">
+                                    <span class="lang-cz">PÁROVÉ OSOBNÍ TRÉNINKY</span>
+                                    <span class="lang-en">COUPLE PERSONAL TRAINING</span>
+                                </h3>
+                                <p class="service-description">
+                                    <span class="lang-cz">
+                                        Stejné jako individuální tréninky, ale pro 2 osoby společně za lepší cenu. Trénujte společně, zůstaňte motivovaní společně a ušetřete peníze při dosahování vašich fitness cílů jako pár ve stejné prémiové lokalitě Form Factory.
+                                    </span>
+                                    <span class="lang-en">
+                                        Same as individual training but for 2 people together at a better price. Train together, stay motivated together, and save money while achieving your fitness goals as a couple in the same premium Form Factory location.
+                                    </span>
+                                </p>
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="lang-cz">Tréninky pro 2 osoby</span>
+                                        <span class="lang-en">Training for 2 people</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Lepší cena pro páry</span>
+                                        <span class="lang-en">Better price for couples</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Společná motivace</span>
+                                        <span class="lang-en">Shared motivation</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-cz">Stejná prémiová lokalita</span>
+                                        <span class="lang-en">Same premium location</span>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="openQuestionnaire('couple-training')">
+                                    <span class="lang-cz">REZERVOVAT PÁROVÝ TRÉNINK</span>
+                                    <span class="lang-en">BOOK COUPLE TRAINING</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">
+                            <span class="lang-cz">O VAŠEM KOUČI</span>
+                            <span class="lang-en">ABOUT YOUR COACH</span>
+                        </h2>
+                        <p class="about-description">
+                            <span class="lang-cz">
+                                S více než 10 lety zkušeností v elitním fitness coachingu jsem pomohl stovkám 
+                                sportovců dosáhnout jejich cílů prostřednictvím ověřených metodologií a personalizované pozornosti. 
+                                Můj přístup kombinuje nejmodernější tréninkové techniky s časem ověřenými principy.
+                            </span>
+                            <span class="lang-en">
+                                With over 10 years of experience in elite fitness coaching, I've helped hundreds of athletes 
+                                achieve their goals through proven methodologies and personalized attention. 
+                                My approach combines cutting-edge training techniques with time-tested principles.
+                            </span>
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">
+                                    <span class="lang-cz">Transformovaných klientů</span>
+                                    <span class="lang-en">Clients Transformed</span>
+                                </span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">
+                                    <span class="lang-cz">Let zkušeností</span>
+                                    <span class="lang-en">Years Experience</span>
+                                </span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">
+                                    <span class="lang-cz">Míra úspěšnosti</span>
+                                    <span class="lang-en">Success Rate</span>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary">
+                            <span class="lang-cz">PŘEČÍST CELÝ PŘÍBĚH</span>
+                            <span class="lang-en">READ FULL STORY</span>
+                        </button>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformations Section -->
+        <section id="transformations" class="transformations-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-cz">TRANSFORMACE PŘED A PO</span>
+                    <span class="lang-en">BEFORE & AFTER TRANSFORMATIONS</span>
+                </h2>
+                <div class="slideshow-container">
+                    <div class="transformation-slide active">
+                        <div class="transformation-card">
+                            <div class="before-after-container">
+                                <div class="before-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PŘED</span>
+                                            <span class="lang-en">BEFORE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="after-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PO</span>
+                                            <span class="lang-en">AFTER</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h3 class="transformation-name">Jan Novák</h3>
+                                <p class="transformation-details">
+                                    <span class="lang-cz">3 měsíce online coachingu | -15kg | +12kg svalové hmoty</span>
+                                    <span class="lang-en">3 months online coaching | -15kg | +12kg muscle mass</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transformation-slide">
+                        <div class="transformation-card">
+                            <div class="before-after-container">
+                                <div class="before-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PŘED</span>
+                                            <span class="lang-en">BEFORE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="after-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PO</span>
+                                            <span class="lang-en">AFTER</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h3 class="transformation-name">Marie Svobodová</h3>
+                                <p class="transformation-details">
+                                    <span class="lang-cz">6 měsíců osobních tréninků | -20kg | Zlepšení kondice o 80%</span>
+                                    <span class="lang-en">6 months personal training | -20kg | 80% fitness improvement</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transformation-slide">
+                        <div class="transformation-card">
+                            <div class="before-after-container">
+                                <div class="before-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PŘED</span>
+                                            <span class="lang-en">BEFORE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="after-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PO</span>
+                                            <span class="lang-en">AFTER</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h3 class="transformation-name">Tomáš Dvořák</h3>
+                                <p class="transformation-details">
+                                    <span class="lang-cz">4 měsíce kickstart programu | +8kg svalové hmoty | -5% tělesného tuku</span>
+                                    <span class="lang-en">4 months kickstart program | +8kg muscle mass | -5% body fat</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transformation-slide">
+                        <div class="transformation-card">
+                            <div class="before-after-container">
+                                <div class="before-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PŘED</span>
+                                            <span class="lang-en">BEFORE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="after-image">
+                                    <div class="image-placeholder">
+                                        <div class="image-label">
+                                            <span class="lang-cz">PO</span>
+                                            <span class="lang-en">AFTER</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transformation-info">
+                                <h3 class="transformation-name">Petra Nováková</h3>
+                                <p class="transformation-details">
+                                    <span class="lang-cz">5 měsíců párových tréninků | -12kg | Zlepšení síly o 60%</span>
+                                    <span class="lang-en">5 months couple training | -12kg | 60% strength improvement</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation arrows -->
+                    <button class="slideshow-btn prev-btn" onclick="changeSlide(-1)">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="slideshow-btn next-btn" onclick="changeSlide(1)">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Slide indicators -->
+                    <div class="slide-indicators">
+                        <button class="indicator active" onclick="currentSlide(1)"></button>
+                        <button class="indicator" onclick="currentSlide(2)"></button>
+                        <button class="indicator" onclick="currentSlide(3)"></button>
+                        <button class="indicator" onclick="currentSlide(4)"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-cz">PŘÍBĚHY ÚSPĚCHU KLIENTŮ</span>
+                    <span class="lang-en">CLIENT SUCCESS STORIES</span>
+                </h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="testimonial-overlay">
+                            <blockquote class="testimonial-quote">
+                                <span class="lang-cz">
+                                    "Program coachingu kompletně transformoval můj přístup k fitness. 
+                                    Nikdy jsem se necítila silnější nebo sebevědomější ve svých schopnostech."
+                                </span>
+                                <span class="lang-en">
+                                    "The coaching program completely transformed my approach to fitness. 
+                                    I've never felt stronger or more confident in my abilities."
+                                </span>
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <span class="author-name">Sarah Johnson</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="testimonial-overlay">
+                            <blockquote class="testimonial-quote">
+                                <span class="lang-cz">
+                                    "Profesionální, motivující a zaměřený na výsledky. Tento program coachingu 
+                                    předčil všechna má očekávání a přinesl skutečné výsledky."
+                                </span>
+                                <span class="lang-en">
+                                    "Professional, motivating, and results-driven. This coaching program 
+                                    exceeded all my expectations and delivered real results."
+                                </span>
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <span class="author-name">Michael Chen</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="testimonial-overlay">
+                            <blockquote class="testimonial-quote">
+                                <span class="lang-cz">
+                                    "Personalizovaný přístup a neustálá podpora udělaly veškerý rozdíl. 
+                                    Dosáhla jsem cílů, o kterých jsem si nikdy nemyslela, že jsou možné."
+                                </span>
+                                <span class="lang-en">
+                                    "The personalized approach and ongoing support made all the difference. 
+                                    I've achieved goals I never thought possible."
+                                </span>
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <span class="author-name">Emma Rodriguez</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ebooks Section -->
+        <section id="ebooks" class="ebooks-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-cz">ZDARMA EBOOKY</span>
+                    <span class="lang-en">FREE EBOOKS</span>
+                </h2>
+                <div class="ebooks-grid">
+                    <div class="ebook-card">
+                        <div class="ebook-image">
+                            <div class="image-placeholder">
+                                <div class="ebook-overlay">
+                                    <span class="lang-cz">ZDARMA</span>
+                                    <span class="lang-en">FREE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ebook-content">
+                            <h3 class="ebook-title">
+                                <span class="lang-cz">ÚPLNÝ PRŮVODCE VÝŽIVOU</span>
+                                <span class="lang-en">COMPLETE NUTRITION GUIDE</span>
+                            </h3>
+                            <p class="ebook-description">
+                                <span class="lang-cz">Naučte se základy správné výživy a jak sestavit jídelníček pro vaše fitness cíle.</span>
+                                <span class="lang-en">Learn the basics of proper nutrition and how to create a meal plan for your fitness goals.</span>
+                            </p>
+                            <button class="btn btn-primary">
+                                <span class="lang-cz">STÁHNOUT ZDARMA</span>
+                                <span class="lang-en">DOWNLOAD FREE</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="ebook-card">
+                        <div class="ebook-image">
+                            <div class="image-placeholder">
+                                <div class="ebook-overlay">
+                                    <span class="lang-cz">ZDARMA</span>
+                                    <span class="lang-en">FREE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ebook-content">
+                            <h3 class="ebook-title">
+                                <span class="lang-cz">DOMÁCÍ TRÉNINK BEZ VYBAVENÍ</span>
+                                <span class="lang-en">HOME WORKOUT NO EQUIPMENT</span>
+                            </h3>
+                            <p class="ebook-description">
+                                <span class="lang-cz">Efektivní cvičení, které můžete dělat kdekoliv bez jakéhokoliv vybavení.</span>
+                                <span class="lang-en">Effective exercises you can do anywhere without any equipment.</span>
+                            </p>
+                            <button class="btn btn-primary">
+                                <span class="lang-cz">STÁHNOUT ZDARMA</span>
+                                <span class="lang-en">DOWNLOAD FREE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-cz">ČASTO KLADENÉ OTÁZKY</span>
+                    <span class="lang-en">FREQUENTLY ASKED QUESTIONS</span>
+                </h2>
+                <div class="faq-grid">
+                    <div class="faq-column faq-left">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item" data-aos-delay="100">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">1.</span>
+                                        <span class="lang-cz">Jak funguje online coaching?</span>
+                                        <span class="lang-en">How does online coaching work?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Po vyplnění dotazníku spolu projdeme tvůj cíl, aktuální stav a preference. Na základě toho připravím tréninkový a výživový plán v Google Sheets, které postupně přizpůsobuji. Jsem k dispozici na WhatsAppu 24/7.</p>
+                                        <p class="lang-en">After completing the questionnaire, we'll go through your goal, current state, and preferences together. Based on this, I'll prepare a training and nutrition plan in Google Sheets, which I'll adjust gradually. I'm available on WhatsApp 24/7.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item" data-aos-delay="200">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">2.</span>
+                                        <span class="lang-cz">Je plán přizpůsobený mým časovým možnostem?</span>
+                                        <span class="lang-en">Is the plan adapted to my time availability?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Ano, plán je vždy individuální. Cvičení i jídlo ti nastavím podle toho, kolik máš času, zkušeností a možností.</p>
+                                        <p class="lang-en">Yes, the plan is always individual. I'll set up both exercise and nutrition according to how much time, experience, and options you have.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item" data-aos-delay="300">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">3.</span>
+                                        <span class="lang-cz">Musím mít zkušenosti s posilováním?</span>
+                                        <span class="lang-en">Do I need weight training experience?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Nemusíš. Mám klienty od úplných začátečníků až po závodníky. Tréninkový plán a instrukce ti přizpůsobím tak, aby sis vše osvojil postupně.</p>
+                                        <p class="lang-en">You don't need to. I have clients from complete beginners to competitors. I'll adapt the training plan and instructions so you can learn everything gradually.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item" data-aos-delay="400">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">4.</span>
+                                        <span class="lang-cz">Co když mám specifické zdravotní omezení?</span>
+                                        <span class="lang-en">What if I have specific health limitations?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Stačí mi je napsat do dotazníku a při nastavování plánu s nimi počítám. V případě závažnějších omezení je vždy dobré poradit se i s lékařem.</p>
+                                        <p class="lang-en">Just write them in the questionnaire and I'll account for them when setting up your plan. In case of more serious limitations, it's always good to consult with a doctor as well.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item" data-aos-delay="500">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">5.</span>
+                                        <span class="lang-cz">Jak probíhá komunikace?</span>
+                                        <span class="lang-en">How does communication work?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Používáme primárně WhatsApp nebo videohovory přes Google Meets pokud toho má klient více, co by rád probral. Pravidelně si píšeme o progresu, úpravách a řešíme tvoje dotazy.</p>
+                                        <p class="lang-en">We primarily use WhatsApp or video calls through Google Meets if the client has more to discuss. We regularly text about progress, adjustments, and solve your questions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item" data-aos-delay="600">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">6.</span>
+                                        <span class="lang-cz">Můžu kombinovat osobní tréninky a online coaching?</span>
+                                        <span class="lang-en">Can I combine personal training and online coaching?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Ano, je to možné. Někteří klienti začínají osobně, aby si osvojili techniku, a pak pokračují už čistě online.</p>
+                                        <p class="lang-en">Yes, it's possible. Some clients start in person to master the technique, and then continue purely online.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 7 -->
+                        <div class="faq-item" data-aos-delay="700">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">7.</span>
+                                        <span class="lang-cz">Jaký je rozdíl mezi online coachingem a Kickstart plánem?</span>
+                                        <span class="lang-en">What's the difference between online coaching and Kickstart plan?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Online coaching zahrnuje průběžnou podporu, pravidelné úpravy plánu podle progresu a neomezenou komunikaci přes WhatsApp. Kickstart plán je jednorázový detailní plán na míru bez dalších úprav - ideální pro samostatné jedince, kteří chtějí jasnou roadmapu a preferují pracovat nezávisle.</p>
+                                        <p class="lang-en">Online coaching includes ongoing support, regular plan adjustments based on progress, and unlimited WhatsApp communication. Kickstart plan is a one-time detailed custom plan without further adjustments - ideal for independent individuals who want a clear roadmap and prefer to work independently.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 8 -->
+                        <div class="faq-item" data-aos-delay="800">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">8.</span>
+                                        <span class="lang-cz">Dostanu podporu i po obdržení Kickstart plánu?</span>
+                                        <span class="lang-en">Will I get support after receiving the Kickstart plan?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Kickstart plán zahrnuje jednu 30minutovou konzultaci k plánu a jednu úpravu. Pokud budeš později potřebovat více podpory, můžeme přejít na online coaching.</p>
+                                        <p class="lang-en">Kickstart plan includes one 30-minute plan consultation and one adjustment. If you need more support later, we can switch to online coaching.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    
+                    <div class="faq-column faq-right">
+
+                        <!-- FAQ Item 9 -->
+                        <div class="faq-item" data-aos-delay="900">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">9.</span>
+                                        <span class="lang-cz">Kde přesně probíhají osobní tréninky?</span>
+                                        <span class="lang-en">Where exactly do personal training sessions take place?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">V moderní posilovně Form Factory na Václavském náměstí 221, Praha 1, přímo pod hotelem Juliš. Posilovna je plně vybavená a snadno dostupná MHD - metro Můstek nebo Muzeum.</p>
+                                        <p class="lang-en">At the modern Form Factory gym at Wenceslas Square 221, Prague 1, directly below Hotel Juliš. The gym is fully equipped and easily accessible by public transport - Můstek or Muzeum metro stations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 10 -->
+                        <div class="faq-item" data-aos-delay="1000">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">10.</span>
+                                        <span class="lang-cz">Je možné zrušit nebo přesunout termín osobního tréninku?</span>
+                                        <span class="lang-en">Is it possible to cancel or reschedule a personal training session?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Ano, stačí mi napsat minimálně 12 hodin předem. Pokud to nestihneš, trénink propadá, kromě závažných situací.</p>
+                                        <p class="lang-en">Yes, just message me at least 12 hours in advance. If you don't make it in time, the training session is forfeited, except in serious situations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 13 -->
+                        <div class="faq-item" data-aos-delay="1300">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">13.</span>
+                                        <span class="lang-cz">Můžeme v párovém tréninku trénovat i s různou úrovní zkušeností?</span>
+                                        <span class="lang-en">Can we train in couple sessions with different experience levels?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Určitě ano. Často trénuji páry s různými úrovněmi. Cviky přizpůsobím tak, aby každý trénoval na své úrovni, ale zároveň jste motivováni společně.</p>
+                                        <p class="lang-en">Absolutely yes. I often train couples with different levels. I'll adapt the exercises so everyone trains at their level, but you're motivated together at the same time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 14 -->
+                        <div class="faq-item" data-aos-delay="1400">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">14.</span>
+                                        <span class="lang-cz">Jaká je cenová výhoda párových tréninků oproti individuálním?</span>
+                                        <span class="lang-en">What's the price advantage of couple training vs individual sessions?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">V průměru to vychází o 200 Kč méně na osobu oproti individuálním tréninků.</p>
+                                        <p class="lang-en">On average, it costs 200 CZK less per person compared to individual training sessions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 15 -->
+                        <div class="faq-item" data-aos-delay="1500">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">15.</span>
+                                        <span class="lang-cz">Jaké jsou ceny služeb?</span>
+                                        <span class="lang-en">What are the service prices?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Závisí na počtu lekcí v balíčku nebo týdenní frekvenci. Balíčky lekcí mají expiraci 3 měsíce a frekvenční programy 1 měsíc.</p>
+                                        <p class="lang-en">It depends on the number of lessons in the package or weekly frequency. Lesson packages expire in 3 months and frequency programs in 1 month.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 16 -->
+                        <div class="faq-item" data-aos-delay="1600">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">16.</span>
+                                        <span class="lang-cz">Jak probíhá platba?</span>
+                                        <span class="lang-en">How does payment work?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Online coaching probíhá formou měsíčního předplatného. Kickstart je jednorázová platba po vyplnění dotazníku přes Apple Pay, Google Pay nebo vyplněním údajů karty. Osobní tréninky jsou placené po osobním setkání na konzultaci buď hotově nebo přes QR kód v bankovnictví.</p>
+                                        <p class="lang-en">Online coaching works as a monthly subscription. Kickstart is a one-time payment after completing the questionnaire via Apple Pay, Google Pay, or by entering card details. Personal training sessions are paid after the personal consultation meeting, either in cash or via QR code in banking apps.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 17 -->
+                        <div class="faq-item" data-aos-delay="1700">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">17.</span>
+                                        <span class="lang-cz">Je možné ukončit spolupráci?</span>
+                                        <span class="lang-en">Is it possible to end the cooperation?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">Online coaching lze ukončit po uplynutí měsíce. Pokud se platba stihne strhnout dříve, stačí požádat o refund a vrátím prostředky zpět. Osobní tréninky lze ukončit po absolvování všech tréninků nebo dosažení expirace od data první lekce.</p>
+                                        <p class="lang-en">Online coaching can be terminated after the month expires. If the payment is charged earlier, just request a refund and I'll return the funds. Personal training can be terminated after completing all sessions or reaching the expiration date from the first lesson.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 18 -->
+                        <div class="faq-item" data-aos-delay="1800">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <div class="question-content">
+                                    <h3 class="question-text">
+                                        <span class="question-number">18.</span>
+                                        <span class="lang-cz">Jak dlouho trvá, než uvidím první výsledky?</span>
+                                        <span class="lang-en">How long does it take to see the first results?</span>
+                                    </h3>
+                                    <div class="question-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="answer-content">
+                                        <p class="lang-cz">U online coachingu už během 7 dní, pokud klient dodržuje vše podle instrukcí a aktivně komunikuje. U osobních tréninků záleží na počtu lekcí a odhodlání - většinou už kolem 2. týdne lidé pozorují zpevnění těla, větší mobilitu a lepší energii během dne. Při základním dodržování doporučení přijdou vizuální změny mnohem dříve.</p>
+                                        <p class="lang-en">With online coaching within 7 days, if the client follows everything according to instructions and actively communicates. With personal training it depends on the number of lessons and commitment - usually around the 2nd week people notice body tightening, greater mobility, and better energy during the day. With basic adherence to recommendations, visual changes come much sooner.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title" data-cz="KONTAKT" data-en="CONTACT">KONTAKT</h3>
+                    <div class="footer-links">
+                        <a href="mailto:dbcoaching@dbrom.cz" class="footer-link">
+                            <span class="footer-label" data-cz="Email" data-en="Email">Email</span>
+                            <span class="footer-value">dbcoaching@dbrom.cz</span>
+                        </a>
+                        <a href="tel:+420732853321" class="footer-link">
+                            <span class="footer-label" data-cz="Telefon" data-en="Phone">Telefon</span>
+                            <span class="footer-value">+420 732 853 321</span>
+                        </a>
+                        <a href="https://instagram.com/dbrom_lifts" class="footer-link" target="_blank">
+                            <span class="footer-label" data-cz="Instagram" data-en="Instagram">Instagram</span>
+                            <span class="footer-value">@dbrom_lifts</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title" data-cz="ADRESA TRÉNINKŮ" data-en="TRAINING ADDRESS">ADRESA TRÉNINKŮ</h3>
+                    <div class="footer-address">
+                        <p>Form Factory Fitness Club</p>
+                        <p>Václavské nám. 221</p>
+                        <p>110 00 Praha 1 – Nové Město</p>
+                        <p data-cz="(pod hotelem Juliš)" data-en="(below Hotel Juliš)">(pod hotelem Juliš)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full width map section -->
+            <div class="footer-map-section">
+                <h3 class="footer-title" data-cz="MAPA" data-en="MAP">MAPA</h3>
+                <div class="map-container-full">
+                    <iframe 
+                        src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=cs&amp;q=Form%20Factory%20Fitness%20Club%20V%C3%A1clavsk%C3%A9%20n%C3%A1m.%20221,%20Praha%201&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa - Form Factory Fitness Club, Václavské náměstí 221, Praha 1">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DB Coaching. <span data-cz="Všechna práva vyhrazena." data-en="All rights reserved.">Všechna práva vyhrazena.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Notification Popup -->
+    <div id="purchase-notification" class="purchase-popup">
+        <div class="popup-content">
+            <div class="popup-icon">🎉</div>
+            <div class="popup-text">
+                <strong class="popup-name"></strong>
+                <span class="popup-action"></span>
+            </div>
+            <button class="popup-close" onclick="closePurchasePopup()">&times;</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Global variables
+        let currentLanguage = 'CZ';
+        let currentSlideIndex = 0;
+
+        // Language switching
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            const body = document.body;
+            
+            if (lang === 'EN') {
+                body.classList.add('lang-en-active');
+            } else {
+                body.classList.remove('lang-en-active');
+            }
+            
+            // Update language toggle button
+            const toggle = document.querySelector('.language-toggle');
+            if (toggle) {
+                toggle.textContent = lang;
+            }
+            
+            // Update footer labels
+            updateFooterLabels();
+            
+            // Update footer titles
+            updateFooterTitles();
+            
+            // Update form placeholders
+            updateFormPlaceholders();
+            
+            // Update select options
+            updateSelectOptions();
+        }
+
+        function updateFooterLabels() {
+            const footerLabels = document.querySelectorAll('.footer-label[data-cz][data-en]');
+            footerLabels.forEach(label => {
+                if (currentLanguage === 'EN') {
+                    label.textContent = label.getAttribute('data-en');
+                } else {
+                    label.textContent = label.getAttribute('data-cz');
+                }
+            });
+        }
+
+        function updateFooterTitles() {
+            const footerTitles = document.querySelectorAll('.footer-title[data-cz][data-en]');
+            footerTitles.forEach(title => {
+                if (currentLanguage === 'EN') {
+                    title.textContent = title.getAttribute('data-en');
+                } else {
+                    title.textContent = title.getAttribute('data-cz');
+                }
+            });
+        }
+
+        function updateFormPlaceholders() {
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                const placeholder = input.nextElementSibling;
+                if (placeholder && (placeholder.classList.contains('lang-cz') || placeholder.classList.contains('lang-en'))) {
+                    // Handle custom placeholder system
+                    const czPlaceholder = input.parentNode.querySelector('.lang-cz');
+                    const enPlaceholder = input.parentNode.querySelector('.lang-en');
+                    
+                    if (czPlaceholder && enPlaceholder) {
+                        if (currentLanguage === 'EN') {
+                            input.placeholder = enPlaceholder.textContent;
+                        } else {
+                            input.placeholder = czPlaceholder.textContent;
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateSelectOptions() {
+            const selects = document.querySelectorAll('select');
+            selects.forEach(select => {
+                const options = select.querySelectorAll('option');
+                options.forEach(option => {
+                    const czText = option.querySelector('.lang-cz');
+                    const enText = option.querySelector('.lang-en');
+                    
+                    if (czText && enText) {
+                        if (currentLanguage === 'EN') {
+                            option.textContent = enText.textContent;
+                        } else {
+                            option.textContent = czText.textContent;
+                        }
+                    }
+                });
+            });
+        }
+
+        // Questionnaire system
+        const questionnaires = {
+            'online-coaching': {
+                title: {
+                    cz: 'KOMPLETNÍ ONLINE COACHING - DOTAZNÍK',
+                    en: 'COMPLETE ONLINE COACHING - QUESTIONNAIRE'
+                },
+                questions: [
+                    {
+                        type: 'text',
+                        label: { cz: 'Jméno a příjmení', en: 'Full Name' },
+                        required: true
+                    },
+                    {
+                        type: 'email',
+                        label: { cz: 'E-mail', en: 'Email Address' },
+                        required: true
+                    },
+                    {
+                        type: 'tel',
+                        label: { cz: 'Telefonní číslo (WhatsApp)', en: 'Phone Number (WhatsApp)' },
+                        required: true
+                    },
+                    {
+                        type: 'select',
+                        label: { cz: 'Vaše zkušenosti s fitness', en: 'Your fitness experience' },
+                        options: {
+                            cz: ['Začátečník', 'Mírně pokročilý', 'Pokročilý', 'Expert'],
+                            en: ['Beginner', 'Intermediate', 'Advanced', 'Expert']
+                        },
+                        required: true
+                    },
+                    {
+                        type: 'textarea',
+                        label: { cz: 'Popište svou současnou situaci', en: 'Describe your current situation' },
+                        required: true
+                    }
+                ]
+            },
+            'kickstart': {
+                title: {
+                    cz: 'KICKSTART PLÁN NA MÍRU - DOTAZNÍK',
+                    en: 'CUSTOM KICKSTART PLAN - QUESTIONNAIRE'
+                },
+                questions: [
+                    {
+                        type: 'text',
+                        label: { cz: 'Jméno a příjmení', en: 'Full Name' },
+                        required: true
+                    },
+                    {
+                        type: 'email',
+                        label: { cz: 'E-mail', en: 'Email Address' },
+                        required: true
+                    },
+                    {
+                        type: 'select',
+                        label: { cz: 'Časový rámec pro dosažení cíle', en: 'Timeline to achieve goal' },
+                        options: {
+                            cz: ['1-3 měsíce', '3-6 měsíců', '6-12 měsíců', 'Více než rok'],
+                            en: ['1-3 months', '3-6 months', '6-12 months', 'More than a year']
+                        },
+                        required: true
+                    }
+                ]
+            },
+            'personal-praha': {
+                title: {
+                    cz: 'OSOBNÍ TRÉNINKY PRAHA - DOTAZNÍK',
+                    en: 'PERSONAL TRAINING PRAGUE - QUESTIONNAIRE'
+                },
+                questions: [
+                    {
+                        type: 'text',
+                        label: { cz: 'Jméno a příjmení', en: 'Full Name' },
+                        required: true
+                    },
+                    {
+                        type: 'email',
+                        label: { cz: 'E-mail', en: 'Email Address' },
+                        required: true
+                    },
+                    {
+                        type: 'select',
+                        label: { cz: 'Preferovaný čas tréninků', en: 'Preferred training time' },
+                        options: {
+                            cz: ['Ráno (6-10)', 'Dopoledne (10-14)', 'Odpoledne (14-18)', 'Večer (18-22)'],
+                            en: ['Morning (6-10)', 'Late morning (10-14)', 'Afternoon (14-18)', 'Evening (18-22)']
+                        },
+                        required: true
+                    }
+                ]
+            },
+            'couple-training': {
+                title: {
+                    cz: 'PÁROVÉ TRÉNINKY - DOTAZNÍK',
+                    en: 'COUPLE TRAINING - QUESTIONNAIRE'
+                },
+                questions: [
+                    {
+                        type: 'text',
+                        label: { cz: 'Jméno partnera 1', en: 'Partner 1 Name' },
+                        required: true
+                    },
+                    {
+                        type: 'text',
+                        label: { cz: 'Jméno partnera 2', en: 'Partner 2 Name' },
+                        required: true
+                    },
+                    {
+                        type: 'email',
+                        label: { cz: 'Kontaktní e-mail', en: 'Contact Email' },
+                        required: true
+                    }
+                ]
+            }
+        };
+
+        function openQuestionnaire(serviceId) {
+            const questionnaire = questionnaires[serviceId];
+            if (!questionnaire) return;
+
+            const modalHTML = `
+                <div id="questionnaire-modal" class="modal-overlay show">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <h2 class="modal-title">${questionnaire.title[currentLanguage.toLowerCase()]}</h2>
+                            <button class="modal-close" onclick="closeQuestionnaireModal()">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="questionnaire-form" class="questionnaire-form">
+                                <div id="questions-container">
+                                    ${generateQuestions(questionnaire.questions)}
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="lang-cz">ODESLAT DOTAZNÍK</span>
+                                        <span class="lang-en">SUBMIT QUESTIONNAIRE</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove existing modal
+            const existingModal = document.getElementById('questionnaire-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            document.body.style.overflow = 'hidden';
+
+            // Apply current language
+            switchLanguage(currentLanguage);
+
+            // Add form submit handler
+            const form = document.getElementById('questionnaire-form');
+            form.addEventListener('submit', (e) => handleQuestionnaireSubmit(e, serviceId));
+        }
+
+        function generateQuestions(questions) {
+            return questions.map((q, index) => {
+                const label = q.label[currentLanguage.toLowerCase()];
+                const required = q.required ? 'required' : '';
+                
+                let inputHTML = '';
+                if (q.type === 'textarea') {
+                    inputHTML = `<textarea class="form-input" name="q${index}" ${required}></textarea>`;
+                } else if (q.type === 'select') {
+                    const options = q.options[currentLanguage.toLowerCase()];
+                    inputHTML = `
+                        <select class="form-input" name="q${index}" ${required}>
+                            <option value="">-- ${currentLanguage === 'CZ' ? 'Vyberte možnost' : 'Select option'} --</option>
+                            ${options.map(option => `<option value="${option}">${option}</option>`).join('')}
+                        </select>
+                    `;
+                } else {
+                    inputHTML = `<input type="${q.type}" class="form-input" name="q${index}" ${required}>`;
+                }
+
+                return `
+                    <div class="form-group">
+                        <label class="form-label">${label} ${q.required ? '*' : ''}</label>
+                        ${inputHTML}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function closeQuestionnaireModal() {
+            const modal = document.getElementById('questionnaire-modal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function handleQuestionnaireSubmit(e, serviceId) {
+            e.preventDefault();
+            
+            // Show success message
+            const successModal = `
+                <div id="success-modal" class="modal-overlay show">
+                    <div class="modal-container success-container">
+                        <div class="success-content">
+                            <div class="success-icon">✓</div>
+                            <h2 class="success-title">
+                                <span class="lang-cz">DOTAZNÍK ÚSPĚŠNĚ ODESLÁN!</span>
+                                <span class="lang-en">QUESTIONNAIRE SUCCESSFULLY SUBMITTED!</span>
+                            </h2>
+                            <p class="success-message">
+                                <span class="lang-cz">
+                                    Děkujeme za vyplnění dotazníku. Vaše odpovědi jsem obdržel a brzy se vám ozvu na WhatsApp s dalšími informacemi.
+                                </span>
+                                <span class="lang-en">
+                                    Thank you for filling out the questionnaire. I have received your answers and will contact you soon on WhatsApp with further information.
+                                </span>
+                            </p>
+                            <button class="btn btn-primary" onclick="closeSuccessModal()">
+                                <span class="lang-cz">ZAVŘÍT</span>
+                                <span class="lang-en">CLOSE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            closeQuestionnaireModal();
+            document.body.insertAdjacentHTML('beforeend', successModal);
+            switchLanguage(currentLanguage);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Tab functionality
+        function initializeTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetContent = document.querySelector(`.tab-content[data-tab="${targetTab}"]`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Navigation functionality
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            function updateActiveNav() {
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+        }
+
+        // Slideshow functionality
+        function initializeSlideshow() {
+            const slides = document.querySelectorAll('.transformation-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                if (slides[index]) {
+                    slides[index].classList.add('active');
+                    indicators[index].classList.add('active');
+                }
+            }
+            
+            window.changeSlide = function(direction) {
+                currentSlideIndex += direction;
+                
+                if (currentSlideIndex >= slides.length) {
+                    currentSlideIndex = 0;
+                } else if (currentSlideIndex < 0) {
+                    currentSlideIndex = slides.length - 1;
+                }
+                
+                showSlide(currentSlideIndex);
+            }
+            
+            window.currentSlide = function(index) {
+                currentSlideIndex = index - 1;
+                showSlide(currentSlideIndex);
+            }
+            
+            // Auto-play slideshow
+            setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        }
+
+        // Purchase notification system
+        function initializePurchaseNotifications() {
+            const notifications = [
+                {
+                    name: "Jana K.",
+                    action: {
+                        cz: "si právě rezervovala vstupní konzultaci",
+                        en: "just booked an initial consultation"
+                    }
+                },
+                {
+                    name: "Tomáš M.",
+                    action: {
+                        cz: "si zakoupil Kickstart plán",
+                        en: "purchased a Kickstart plan"
+                    }
+                }
+            ];
+            
+            let notificationIndex = 0;
+            
+            function showPurchaseNotification() {
+                const notification = document.getElementById('purchase-notification');
+                const nameElement = notification.querySelector('.popup-name');
+                const actionElement = notification.querySelector('.popup-action');
+                
+                const currentNotification = notifications[notificationIndex];
+                
+                nameElement.textContent = currentNotification.name;
+                actionElement.textContent = currentNotification.action[currentLanguage.toLowerCase()];
+                
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 4000);
+                
+                notificationIndex = (notificationIndex + 1) % notifications.length;
+            }
+            
+            window.closePurchasePopup = function() {
+                document.getElementById('purchase-notification').classList.remove('show');
+            };
+            
+            // Show notifications every 2 minutes
+            setTimeout(() => {
+                showPurchaseNotification();
+                setInterval(showPurchaseNotification, 120000);
+            }, 30000);
+        }
+
+        // Contact form handling
+        function initializeContactForm() {
+            const contactForm = document.querySelector('.contact-form .form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: var(--color-accent-gold);
+                        color: var(--color-bg-primary);
+                        padding: 1rem 2rem;
+                        z-index: 1002;
+                        font-weight: var(--font-weight-medium);
+                    `;
+                    notification.textContent = currentLanguage === 'CZ' ? 
+                        'Děkujeme! Vaše zpráva byla odeslána.' : 
+                        'Thank you! Your message has been sent.';
+                    
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 5000);
+                    
+                    this.reset();
+                });
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language toggle
+            const languageToggle = document.querySelector('.language-toggle');
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function() {
+                    const newLang = currentLanguage === 'CZ' ? 'EN' : 'CZ';
+                    switchLanguage(newLang);
+                });
+            }
+            
+            // Initialize all components
+            initializeTabs();
+            initializeNavigation();
+            initializeSlideshow();
+            initializePurchaseNotifications();
+            initializeContactForm();
+            
+            // Set initial language
+            switchLanguage('CZ');
+            
+            console.log('✅ Premium Fitness Website Loaded - All functionality working!');
+        });
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                if (e.target.id === 'questionnaire-modal') {
+                    closeQuestionnaireModal();
+                } else if (e.target.id === 'success-modal') {
+                    closeSuccessModal();
+                }
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQuestionnaireModal();
+                closeSuccessModal();
+            }
+        });
+
+        // FAQ Toggle Functionality
+        function toggleFAQ(questionElement) {
+            const answer = questionElement.parentElement.querySelector('.faq-answer');
+            const isActive = questionElement.classList.contains('active');
+            
+            // Zavři ostatní
+            document.querySelectorAll('.faq-question.active').forEach(q => {
+                q.classList.remove('active');
+                q.parentElement.querySelector('.faq-answer').style.maxHeight = '0';
+            });
+            
+            // Otevři/zavři aktuální
+            if (!isActive) {
+                questionElement.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        // Initialize FAQ on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for FAQ animation
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            const faqObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+            
+            faqItems.forEach(item => {
+                item.style.animationPlayState = 'paused';
+                faqObserver.observe(item);
+            });
+            
+            console.log('✅ FAQ section initialized with animations');
+        });
+
+        // ===== HAMBURGER MENU FUNCTIONALITY =====
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const whatsapp = document.querySelector('.floating-whatsapp');
+            const instagram = document.querySelector('.floating-instagram');
+            
+            menu.classList.toggle('active');
+            
+            if (menu.classList.contains('active')) {
+                whatsapp.style.display = 'none';
+                instagram.style.display = 'none';
+            } else {
+                whatsapp.style.display = 'flex';
+                instagram.style.display = 'flex';
+            }
+            
+            // Přidej event listeners pro zavření menu po kliknutí na odkaz
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    document.querySelector('.nav-menu').classList.remove('active');
+                    // Znovu zobraz floating tlačítka
+                    whatsapp.style.display = 'flex';
+                    instagram.style.display = 'flex';
+                });
+            });
+        }
+        
+        // ===== CLOSE MOBILE MENU FUNCTION =====
+        function closeMobileMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.remove('active');
+            
+            // Zobraz zpět floating tlačítka
+            document.querySelector('.floating-whatsapp').style.display = 'flex';
+            document.querySelector('.floating-instagram').style.display = 'flex';
+        }
+        
+        // ===== LANGUAGE SWITCHER FUNCTION =====
+        function switchLanguage(lang) {
+            // Přepni aktivní jazyk
+            const buttons = document.querySelectorAll('.language-toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent === lang) {
+                    btn.style.background = 'white';
+                    btn.style.color = 'black';
+                    btn.classList.add('active');
+                } else {
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'white';
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Aktualizuj globální jazyk
+            currentLanguage = lang;
+            
+            // Zde můžete přidat logiku pro změnu jazyka stránky
+            console.log('Jazyk změněn na:', lang);
+        }
+
+    </script>
+
+    <style>
+        /* ===== FAQ SECTION - PREMIUM ANIMATED DESIGN ===== */
+        .faq-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: var(--color-bg-primary);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+
+        .faq-section .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Subtle background pattern */
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            align-items: start;
+        }
+
+        .faq-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .faq-column.faq-left {
+            padding-right: var(--spacing-lg);
+        }
+
+        .faq-column.faq-right {
+            padding-left: var(--spacing-lg);
+        }
+
+        .faq-item {
+            margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .faq-question {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .faq-item[data-aos-delay="100"] { animation-delay: 0.1s; }
+        .faq-item[data-aos-delay="200"] { animation-delay: 0.2s; }
+        .faq-item[data-aos-delay="300"] { animation-delay: 0.3s; }
+        .faq-item[data-aos-delay="400"] { animation-delay: 0.4s; }
+        .faq-item[data-aos-delay="500"] { animation-delay: 0.5s; }
+        .faq-item[data-aos-delay="600"] { animation-delay: 0.6s; }
+        .faq-item[data-aos-delay="700"] { animation-delay: 0.7s; }
+        .faq-item[data-aos-delay="800"] { animation-delay: 0.8s; }
+        .faq-item[data-aos-delay="900"] { animation-delay: 0.9s; }
+        .faq-item[data-aos-delay="1000"] { animation-delay: 1.0s; }
+        .faq-item[data-aos-delay="1100"] { animation-delay: 1.1s; }
+        .faq-item[data-aos-delay="1200"] { animation-delay: 1.2s; }
+        .faq-item[data-aos-delay="1300"] { animation-delay: 1.3s; }
+        .faq-item[data-aos-delay="1400"] { animation-delay: 1.4s; }
+        .faq-item[data-aos-delay="1500"] { animation-delay: 1.5s; }
+        .faq-item[data-aos-delay="1600"] { animation-delay: 1.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-question {
+            background: var(--color-bg-surface-secondary);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-question::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .faq-question:hover::before {
+            left: 100%;
+        }
+
+        .faq-question:hover {
+            border-color: var(--color-accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .faq-question.active {
+            border-color: var(--color-accent-gold);
+            background: linear-gradient(135deg, var(--color-bg-surface-secondary) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .question-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-md) var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+            min-height: 70px;
+            width: 100%;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin: 0;
+            flex: 1;
+            padding-right: var(--spacing-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-xs);
+            min-height: 70px;
+            width: 100%;
+        }
+
+        .question-number {
+            color: var(--color-accent-gold);
+            font-weight: var(--font-weight-bold);
+            margin-right: var(--spacing-xs);
+        }
+
+        .question-icon {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .question-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--color-accent-gold);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--color-bg-primary);
+        }
+
+        .faq-question.active .faq-answer {
+            max-height: 500px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .answer-content {
+            padding: var(--spacing-lg);
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease 0.1s;
+        }
+
+        .faq-question.active .faq-answer .answer-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .answer-content p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 1024px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-column {
+                gap: var(--spacing-sm);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: var(--spacing-lg) var(--spacing-md);
+                margin-bottom: 60px;
+            }
+            
+            .question-content {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+                padding-right: var(--spacing-sm);
+            }
+            
+            .question-icon {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .answer-content {
+                padding: var(--spacing-md);
+            }
+            
+            .answer-content p {
+                font-size: 0.95rem;
+            }
+            
+            .faq-item {
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .question-text {
+                font-size: 1rem;
+            }
+            
+            .answer-content p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+        }
+    </style>
+
+    <!-- Sticky Language Switcher -->
+    <div class="nav-language">
+        <button class="language-toggle active" onclick="switchLanguage('CZ')">CZ</button>
+        <button class="language-toggle" onclick="switchLanguage('EN')">EN</button>
+    </div>
+    
+
+
+    <!-- Floating Social Buttons -->
+    <a href="https://instagram.com/dbrom_lifts" class="floating-instagram" target="_blank" aria-label="Follow on Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+    
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/420732853321" class="floating-whatsapp" target="_blank" aria-label="Contact on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </a>
+</body>
+</html>
