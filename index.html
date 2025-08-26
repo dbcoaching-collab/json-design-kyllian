@@ -1575,23 +1575,7 @@ body {
         display: flex;
     }
     
-    .nav-container::after {
-        content: "☰ menu";
-        color: var(--color-accent-gold);
-        font-size: 1rem;
-        cursor: pointer;
-        margin-left: auto;
-        letter-spacing: 0.05em;
-        font-weight: 500;
-        text-transform: lowercase;
-        border-left: none; /* Odstranění levého borderu */
-        border-right: none; /* Odstranění pravého borderu */
-        outline: none; /* Odstranění outline */
-    }
-    
-    .nav-container:active::after {
-        content: "✕";
-    }
+    /* Rušivá ikonka "☰ menu" odstraněna */
     
     .nav-label {
         font-size: 0.7rem;
@@ -2054,6 +2038,55 @@ body {
             }
         }
 
+        // Funkce pro hamburger menu - vylepšená s debuggingem
+        function toggleHamburgerMenu() {
+            console.log('🔄 toggleHamburgerMenu() voláno');
+            
+            const menu = document.getElementById('hamburgerMenu');
+            if (!menu) {
+                console.error('❌ Element hamburgerMenu nenalezen!');
+                return;
+            }
+            
+            const isActive = menu.classList.contains('active');
+            console.log('📱 Menu je aktivní:', isActive);
+            
+            // Toggle stavu
+            menu.classList.toggle('active');
+            
+            // Zamezení scrollování na pozadí - vylepšené
+            if (menu.classList.contains('active')) {
+                console.log('🔒 Zakazuji scrolling');
+                document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
+                document.body.style.top = `-${window.scrollY}px`;
+            } else {
+                console.log('🔓 Obnovuji scrolling');
+                const scrollY = document.body.style.top;
+                document.body.style.position = '';
+                document.body.style.overflow = '';
+                document.body.style.width = '';
+                document.body.style.top = '';
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+            
+            console.log('✅ Hamburger menu toggle dokončen');
+        }
+        
+        // Dodatečná kontrola při načtení stránky
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌐 Stránka načtena - kontroluji hamburger menu');
+            
+            // Reset scrolling stavu
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            
+            console.log('🔄 Scrolling stav resetován');
+        });
+        
         // Načíst uložený jazyk při načtení stránky
         document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('language') || 'cz';
@@ -2072,84 +2105,15 @@ body {
     </script>
 </head>
 <body>
-    <!-- Vertical Sidebar Navigation -->
+    <!-- Clean Header Navigation - Only Language Switcher -->
     <nav class="sidebar-nav">
         <div class="nav-container">
-            <!-- Logo odstraněno podle požadavku -->
-            
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <!-- Hamburger menu tlačítko -->
+            <button class="hamburger-btn" onclick="toggleHamburgerMenu()">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            
-            <ul class="nav-menu mobile-menu" onclick="toggleMobileMenu()">
-                <!-- Křížek odstraněn podle požadavku -->
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active" data-section="home">
-                        <span class="nav-label">
-                            <span class="lang-cz">Domů</span>
-                            <span class="lang-en">Home</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link" data-section="services">
-                        <span class="nav-label">
-                            <span class="lang-cz">Služby</span>
-                            <span class="lang-en">Services</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-section="about">
-                        <span class="nav-label">
-                            <span class="lang-cz">O mně</span>
-                            <span class="lang-en">About</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#transformations" class="nav-link" data-section="transformations">
-                        <span class="nav-label">
-                            <span class="lang-cz">Transformace</span>
-                            <span class="lang-en">Transformations</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#testimonials" class="nav-link" data-section="testimonials">
-                        <span class="nav-label">
-                            <span class="lang-cz">Recenze</span>
-                            <span class="lang-en">Reviews</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#ebooks" class="nav-link" data-section="ebooks">
-                        <span class="nav-label">
-                            <span class="lang-cz">Ebooky</span>
-                            <span class="lang-en">Ebooks</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#faq" class="nav-link" data-section="faq">
-                        <span class="nav-label">
-                            <span class="lang-cz">FAQ</span>
-                            <span class="lang-en">FAQ</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#footer" class="nav-link" data-section="footer">
-                        <span class="nav-label">
-                            <span class="lang-cz">Kontakt</span>
-                            <span class="lang-en">Contact</span>
-                        </span>
-                    </a>
-                </li>
-            </ul>
             
             <!-- Jazykový přepínač v pravém rohu -->
             <div class="nav-language">
@@ -2158,6 +2122,57 @@ body {
             </div>
         </div>
     </nav>
+
+    <!-- New Hamburger Menu with Photo -->
+    <div class="hamburger-menu-overlay" id="hamburgerMenu">
+        <div class="hamburger-menu-content">
+            <!-- Close button -->
+            <button class="hamburger-close" onclick="toggleHamburgerMenu()">✕</button>
+            
+            <!-- Background photo -->
+            <div class="hamburger-bg-photo"></div>
+            
+            <!-- Navigation links -->
+            <nav class="hamburger-nav">
+                <ul class="hamburger-nav-list">
+                    <li><a href="#home" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">DOMŮ</span>
+                        <span class="lang-en">HOME</span>
+                    </a></li>
+                    <li><a href="#services" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">SLUŽBY</span>
+                        <span class="lang-en">SERVICES</span>
+                    </a></li>
+                    <li><a href="#about" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">O MNĚ</span>
+                        <span class="lang-en">ABOUT</span>
+                    </a></li>
+                    <li><a href="#transformations" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">TRANSFORMACE</span>
+                        <span class="lang-en">TRANSFORMATIONS</span>
+                    </a></li>
+                    <li><a href="#testimonials" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">RECENZE</span>
+                        <span class="lang-en">REVIEWS</span>
+                    </a></li>
+                    <li><a href="#ebooks" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">EBOOKY</span>
+                        <span class="lang-en">EBOOKS</span>
+                    </a></li>
+                    <li><a href="#faq" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">FAQ</span>
+                        <span class="lang-en">FAQ</span>
+                    </a></li>
+                    <li><a href="#footer" onclick="toggleHamburgerMenu()">
+                        <span class="lang-cz">KONTAKT</span>
+                        <span class="lang-en">CONTACT</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <!-- Social media icons removed -->
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -4145,6 +4160,306 @@ body {
         .floating-instagram:hover {
             transform: translate3d(0, 0, 0) scale(1.15);
             box-shadow: 0 8px 25px rgba(225, 48, 108, 0.6);
+        }
+        
+        /* ===== NEW HAMBURGER MENU STYLES ===== */
+        
+        /* Hamburger button in header */
+        .hamburger-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 1001;
+        }
+        
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: var(--color-accent-gold);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .hamburger-btn:hover .hamburger-line {
+            background: var(--color-accent-gold-hover);
+        }
+        
+        /* Hamburger menu overlay */
+        .hamburger-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Dodatečná ochrana proti scrollingu */
+            overflow: hidden;
+            touch-action: none;
+            /* GPU akcelerace */
+            will-change: opacity, visibility;
+            transform: scale(0.95);
+        }
+        
+        .hamburger-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        /* Hamburger menu content */
+        .hamburger-menu-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        /* Background photo */
+        .hamburger-bg-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background-photo.jpg') center center;
+            background-size: cover;
+            filter: grayscale(100%) brightness(0.8);
+            z-index: -1;
+            /* Smooth animace pro pozadí */
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        
+        .hamburger-menu-overlay.active .hamburger-bg-photo {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* Close button */
+        .hamburger-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            line-height: 1;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* Slide-in animace pro close tlačítko */
+            opacity: 0;
+            transform: translateY(-20px) scale(0.8);
+            /* GPU akcelerace */
+            will-change: opacity, transform;
+        }
+        
+        .hamburger-menu-overlay.active .hamburger-close {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.5s;
+        }
+        
+        .hamburger-close:hover {
+            color: var(--color-accent-gold);
+            transform: scale(1.15) rotate(90deg);
+        }
+        
+        /* Navigation links */
+        .hamburger-nav {
+            z-index: 2001;
+            margin-bottom: 3rem;
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Vertikální linie odstraněna */
+        
+        .hamburger-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        
+        .hamburger-nav-list li {
+            margin: 1rem 0;
+        }
+        
+        .hamburger-nav-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 8px rgba(255, 255, 255, 0.7),
+                0 0 15px rgba(255, 255, 255, 0.5),
+                1px 1px 2px rgba(0,0,0,0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: block;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin: 0.6rem 0;
+            /* Slide-in animace */
+            opacity: 0;
+            transform: translateX(30px);
+            /* GPU akcelerace */
+            will-change: opacity, transform;
+        }
+        
+        /* Aktivní stav pro slide-in */
+        .hamburger-menu-overlay.active .hamburger-nav-list a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Staggered animace pro jednotlivé položky */
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(1) { transition-delay: 0.1s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(2) { transition-delay: 0.15s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(3) { transition-delay: 0.2s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(4) { transition-delay: 0.25s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(5) { transition-delay: 0.3s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(6) { transition-delay: 0.35s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(7) { transition-delay: 0.4s; }
+        .hamburger-menu-overlay.active .hamburger-nav-list a:nth-child(8) { transition-delay: 0.45s; }
+        
+        .hamburger-nav-list a:hover {
+            color: white;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 1),
+                0 0 25px rgba(255, 255, 255, 0.8),
+                0 0 35px rgba(255, 255, 255, 0.6),
+                1px 1px 2px rgba(0,0,0,0.8);
+            transform: translateX(5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            /* Smooth hover animace */
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* Social media icons */
+        .hamburger-social {
+            display: flex;
+            gap: 1.5rem;
+            z-index: 2001;
+            position: absolute;
+            right: 3rem;
+            bottom: 3rem;
+        }
+        
+        .hamburger-social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        .hamburger-social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            color: white;
+        }
+        
+        .hamburger-social-icon.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .hamburger-social-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+        
+        .hamburger-social-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        /* Mobile responsiveness - přesně podle screenshotu */
+        @media (max-width: 768px) {
+            .hamburger-nav {
+                right: 2.5rem;
+                top: 55%;
+            }
+            
+            .hamburger-nav-list a {
+                font-size: 0.85rem;
+                font-weight: 300;
+                margin: 0.5rem 0;
+                letter-spacing: 0.05em;
+            }
+            
+            .hamburger-social {
+                right: 2rem;
+                bottom: 2rem;
+                gap: 1.2rem;
+            }
+            
+            .hamburger-social-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .hamburger-social-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hamburger-nav {
+                right: 2rem;
+                top: 55%;
+            }
+            
+            .hamburger-nav-list a {
+                font-size: 0.8rem;
+                font-weight: 300;
+                margin: 0.4rem 0;
+                letter-spacing: 0.05em;
+            }
+            
+            .hamburger-social {
+                right: 1.5rem;
+                bottom: 1.5rem;
+                gap: 1rem;
+            }
+            
+            .hamburger-social-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hamburger-social-icon svg {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 
