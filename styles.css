@@ -113,6 +113,40 @@ body {
     margin-top: 80px;
 }
 
+    /* Mobilní úprava pro main-content */
+    @media (max-width: 768px) {
+        .main-content {
+            margin-top: 70px !important; /* Méně mezery na mobilu */
+        }
+        
+        /* Oprava nadměrných mezer mezi sekcemi na mobilu */
+        .about-section {
+            padding: 2rem 1rem !important; /* top: 2rem, right/left: 1rem, bottom: 1rem */
+        }
+        
+        .transformations-section {
+            padding: 1rem 1rem 2rem !important; /* top: 1rem, right/left: 1rem, bottom: 2rem */
+        }
+        
+        .testimonials-section {
+            padding: 2rem 1rem !important; /* top/bottom: 2rem, right/left: 1rem */
+        }
+        
+        /* Snížení mezer v obsahu sekcí */
+        .about-content {
+            gap: 2rem !important; /* Méně mezery mezi textem a obrázkem */
+        }
+        
+        .about-description {
+            margin-bottom: 1.5rem !important; /* Méně mezery pod popisem */
+        }
+        
+        .about-stats {
+            gap: 1.5rem !important; /* Méně mezery mezi statistikami */
+            margin-bottom: 1.5rem !important; /* Méně mezery pod statistikami */
+        }
+    }
+
 /* ===== UPDATED NAVIGATION - HORIZONTAL TOP LAYOUT ===== */
 .sidebar-nav {
     position: fixed;
@@ -1549,11 +1583,13 @@ body {
     .hero-section {
         height: auto !important; /* Automatická výška místo 100vh */
         min-height: auto !important; /* Žádná minimální výška */
-        padding: var(--spacing-sm) 0 !important; /* Minimální padding */
+        padding: 2rem 0 !important; /* Přesně 2cm padding */
+        margin-bottom: 2rem !important; /* Přesně 2cm mezera pod hero */
     }
     
     .section {
-        padding: var(--spacing-sm) 0 !important; /* Minimální padding pro sekce */
+        padding: 2rem 0 !important; /* Přesně 2cm padding pro sekce */
+        margin-bottom: 2rem !important; /* Přesně 2cm mezera mezi sekcemi */
     }
     
     .about-section,
@@ -1561,7 +1597,8 @@ body {
     .testimonials-section,
     .ebooks-section,
     .faq-section {
-        padding: var(--spacing-sm) 0 !important; /* Minimální padding pro všechny sekce */
+        padding: 2rem 0 !important; /* Přesně 2cm padding pro všechny sekce */
+        margin-bottom: 2rem !important; /* Přesně 2cm mezera mezi sekcemi */
     }
     
     /* Minimalizace mezer v textu */
