@@ -1482,83 +1482,55 @@ body {
 }
 
 /* ===== MOBILNÍ NAVIGACE ===== */
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    gap: 4px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.hamburger-line {
-    width: 25px;
-    height: 3px;
-    background: var(--color-accent-gold);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
+/* Staré mobile-menu-toggle styly odstraněny - nahrazeno hamburger-btn */
 
 /* Mobilní breakpoint */
 @media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
+    /* Hamburger menu je definováno v index.html - zde jen základní mobilní styly */
     .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 2rem 0;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
+        display: none; /* Skryj desktop navigaci na mobilu */
+    }
+}
+
+/* ===== DESKTOP-ONLY STYLES (>768px) ===== */
+@media (min-width: 769px) {
+    /* Skryj hamburger menu na desktopu */
+    .hamburger-btn {
+        display: none !important;
     }
     
-    .nav-menu.active {
-        transform: translateX(0);
+    /* Zajisti že desktop navigace je viditelná */
+    .nav-menu {
+        display: flex !important;
+        position: static !important;
+        width: auto !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        flex-direction: row !important;
+        padding: 0 !important;
+        transform: none !important;
+        z-index: auto !important;
     }
     
     .nav-item {
-        margin: 0;
-        width: 100%;
+        margin: 0 !important;
+        width: auto !important;
     }
     
     .nav-link {
-        display: block;
-        padding: 1rem 2rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        display: block !important;
+        padding: 0.5rem 1rem !important;
+        text-align: left !important;
+        border-bottom: none !important;
     }
     
     .nav-label {
-        font-size: 1rem;
+        font-size: 1rem !important;
     }
     
     .nav-language {
-        margin: 1rem 0 0 0;
-        display: flex;
-        justify-content: center;
+        margin: 0 0 0 var(--spacing-sm) !important;
+        display: flex !important;
+        justify-content: flex-end !important;
     }
 }
