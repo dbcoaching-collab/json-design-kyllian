@@ -1536,13 +1536,58 @@ body {
         text-align: center !important; /* Nadpis na střed */
     }
     
-    /* Zmenšení prostoru pod tlačítky na mobilu */
+    /* Maximální minimalizace mezer na mobilu */
     .btn {
-        margin-bottom: var(--spacing-sm) !important; /* Menší mezera pod tlačítky */
+        margin-bottom: var(--spacing-xs) !important; /* Minimální mezera pod tlačítky */
     }
     
     .service-card {
-        margin-bottom: var(--spacing-md) !important; /* Menší mezera mezi kartami služeb */
+        margin-bottom: var(--spacing-sm) !important; /* Minimální mezera mezi kartami */
+    }
+    
+    /* Stlačení všech sekcí na mobilu */
+    .hero-section {
+        height: auto !important; /* Automatická výška místo 100vh */
+        min-height: auto !important; /* Žádná minimální výška */
+        padding: var(--spacing-sm) 0 !important; /* Minimální padding */
+    }
+    
+    .section {
+        padding: var(--spacing-sm) 0 !important; /* Minimální padding pro sekce */
+    }
+    
+    .about-section,
+    .transformations-section,
+    .testimonials-section,
+    .ebooks-section,
+    .faq-section {
+        padding: var(--spacing-sm) 0 !important; /* Minimální padding pro všechny sekce */
+    }
+    
+    /* Minimalizace mezer v textu */
+    .hero-description {
+        margin-bottom: var(--spacing-sm) !important; /* Méně mezery pod popisem */
+    }
+    
+    .service-description {
+        margin-bottom: var(--spacing-sm) !important; /* Méně mezery pod popisem služby */
+    }
+    
+    .service-features {
+        margin-bottom: var(--spacing-sm) !important; /* Méně mezery pod seznamem */
+    }
+    
+    /* Minimalizace mezer v kartách */
+    .service-image {
+        margin-bottom: var(--spacing-xs) !important; /* Minimální mezera pod obrázkem */
+    }
+    
+    .testimonial-card {
+        margin-bottom: var(--spacing-sm) !important; /* Méně mezery mezi kartami */
+    }
+    
+    .ebook-card {
+        margin-bottom: var(--spacing-sm) !important; /* Méně mezery mezi ebook kartami */
     }
 }
 
