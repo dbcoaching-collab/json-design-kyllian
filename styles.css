@@ -1481,27 +1481,51 @@ body {
     background: var(--color-accent-gold-hover);
 }
 
-/* ===== MOBILNÍ NAVIGACE ===== */
-/* Staré mobile-menu-toggle styly odstraněny - nahrazeno hamburger-btn */
+/* ===== HAMBURGER MENU STYLY ===== */
+.hamburger-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: none; /* Skryto na desktopu */
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1001;
+}
 
-/* Mobilní breakpoint */
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: var(--color-accent-gold);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger-btn:hover .hamburger-line {
+    background: var(--color-accent-gold-hover);
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Mobilní breakpoint (≤768px) */
 @media (max-width: 768px) {
-    /* Hamburger menu je definováno v index.html - zde jen základní mobilní styly */
+    .hamburger-btn {
+        display: flex !important; /* Zobraz na mobilu */
+    }
+    
     .nav-menu {
         display: none; /* Skryj desktop navigaci na mobilu */
     }
 }
 
-/* ===== DESKTOP-ONLY STYLES (>768px) ===== */
+/* Desktop breakpoint (>768px) */
 @media (min-width: 769px) {
-    /* Skryj hamburger menu na desktopu */
     .hamburger-btn {
-        display: none !important;
+        display: none !important; /* Skryj na desktopu */
     }
     
-    /* Zajisti že desktop navigace je viditelná */
     .nav-menu {
-        display: flex !important;
+        display: flex !important; /* Zobraz desktop navigaci */
         position: static !important;
         width: auto !important;
         background: none !important;
