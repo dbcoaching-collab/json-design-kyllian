@@ -1708,48 +1708,24 @@ body {
     }
 }
 
-/* ===== ABOUT IMAGE SHOWCASE ===== */
-.about-image-showcase {
-    margin-top: 2rem;
-    width: 100%;
-}
-
-.showcase-placeholder {
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--color-accent-gold);
-}
-
-.placeholder-text {
-    color: var(--color-accent-gold);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    letter-spacing: 0.1em;
-    font-size: 1.2rem;
-}
-
-/* Mobile specific */
+/* ===== MOBILE TRANSFORM APPROACH ===== */
 @media (max-width: 768px) {
-    .showcase-placeholder {
-        height: 400px !important; /* Increased height for mobile */
-        margin-bottom: 1rem !important; /* Space before next section */
-        font-size: 1rem;
+    /* Remove/hide placeholder if it exists */
+    .about-image-showcase {
+        display: none !important;
     }
     
-    .about-image-showcase {
-        margin-top: 1rem !important;
-        margin-bottom: 2rem !important; /* Extra space to reach Transformations */
+    /* Pull Transformations section up over empty About space */
+    .transformations-section {
+        margin-top: -4rem !important; /* Pull up by ~64px */
+        position: relative !important;
+        z-index: 2 !important;
     }
-}
-
-/* Desktop remains unchanged - no modifications to desktop layout */
-@media (min-width: 769px) {
-    .showcase-placeholder {
-        height: 300px; /* Keep original desktop height */
+    
+    /* Ensure About content stays visible */
+    .about-content {
+        position: relative !important;
+        z-index: 1 !important;
     }
 }
 
