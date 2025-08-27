@@ -1535,6 +1535,15 @@ body {
     .service-title {
         text-align: center !important; /* Nadpis na střed */
     }
+    
+    /* Zmenšení prostoru pod tlačítky na mobilu */
+    .btn {
+        margin-bottom: var(--spacing-sm) !important; /* Menší mezera pod tlačítky */
+    }
+    
+    .service-card {
+        margin-bottom: var(--spacing-md) !important; /* Menší mezera mezi kartami služeb */
+    }
 }
 
 /* Desktop breakpoint (>768px) */
