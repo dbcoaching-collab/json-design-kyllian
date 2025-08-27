@@ -1516,6 +1516,20 @@ body {
     .nav-menu {
         display: none; /* Skryj desktop navigaci na mobilu */
     }
+    
+    /* Oprava úzkého textu služeb na mobilu */
+    .service-content {
+        width: 100% !important; /* Plná šířka na mobilu */
+        padding: var(--spacing-sm) var(--spacing-sm) !important; /* Menší okraje */
+    }
+    
+    .service-description {
+        padding: 0 var(--spacing-xs) !important; /* Minimální okraje pro text */
+    }
+    
+    .service-features {
+        padding: 0 var(--spacing-xs) !important; /* Minimální okraje pro seznam */
+    }
 }
 
 /* Desktop breakpoint (>768px) */
