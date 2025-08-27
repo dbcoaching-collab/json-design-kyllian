@@ -1530,6 +1530,11 @@ body {
     .service-features {
         padding: 0 !important; /* Žádné okraje pro seznam */
     }
+    
+    /* Centrování nadpisů služeb na mobilu */
+    .service-title {
+        text-align: center !important; /* Nadpis na střed */
+    }
 }
 
 /* Desktop breakpoint (>768px) */
