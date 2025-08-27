@@ -1735,8 +1735,21 @@ body {
 /* Mobile specific */
 @media (max-width: 768px) {
     .showcase-placeholder {
-        height: 250px;
+        height: 400px !important; /* Increased height for mobile */
+        margin-bottom: 1rem !important; /* Space before next section */
         font-size: 1rem;
+    }
+    
+    .about-image-showcase {
+        margin-top: 1rem !important;
+        margin-bottom: 2rem !important; /* Extra space to reach Transformations */
+    }
+}
+
+/* Desktop remains unchanged - no modifications to desktop layout */
+@media (min-width: 769px) {
+    .showcase-placeholder {
+        height: 300px; /* Keep original desktop height */
     }
 }
 
