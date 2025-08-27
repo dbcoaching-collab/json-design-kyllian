@@ -1698,6 +1698,21 @@ body {
     border: 5px solid orange !important;
 }
 
+/* ===== OPRAVA MEZER PŘED ABOUT SEKČÍ ===== */
+@media (max-width: 768px) {
+    /* Hero sekce - redukce spodního padding/margin */
+    .hero-section {
+        padding-bottom: 1rem !important; /* Redukce spodního padding */
+        margin-bottom: 0 !important; /* Žádný margin */
+    }
+    
+    /* Services sekce - redukce spodního padding/margin */
+    .services-section {
+        padding-bottom: 1rem !important; /* Redukce spodního padding */
+        margin-bottom: 0 !important; /* Žádný margin */
+    }
+}
+
 /* Specifický debug pro mobil */
 @media (max-width: 768px) {
     .about-section {
