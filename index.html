@@ -2105,21 +2105,86 @@ body {
     </script>
 </head>
 <body>
-    <!-- Clean Header Navigation - Only Language Switcher -->
+    <!-- Header Navigation with Desktop Menu and Mobile Hamburger -->
     <nav class="sidebar-nav">
         <div class="nav-container">
-            <!-- Hamburger menu tlačítko -->
-            <button class="hamburger-btn" onclick="toggleHamburgerMenu()">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
+            <!-- Logo -->
+            <div class="nav-logo">
+                <div class="logo-icon">DB</div>
+            </div>
+            
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <span class="nav-label">
+                            <span class="lang-cz">DOMŮ</span>
+                            <span class="lang-en">HOME</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-section="services">
+                        <span class="nav-label">
+                            <span class="lang-cz">SLUŽBY</span>
+                            <span class="lang-en">SERVICES</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <span class="nav-label">
+                            <span class="lang-cz">O MNĚ</span>
+                            <span class="lang-en">ABOUT</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transformations" class="nav-link" data-section="transformations">
+                        <span class="nav-label">
+                            <span class="lang-cz">TRANSFORMACE</span>
+                            <span class="lang-en">TRANSFORMATIONS</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link" data-section="testimonials">
+                        <span class="nav-label">
+                            <span class="lang-cz">RECENZE</span>
+                            <span class="lang-en">REVIEWS</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ebooks" class="nav-link" data-section="ebooks">
+                        <span class="nav-label">
+                            <span class="lang-cz">EBOOKY</span>
+                            <span class="lang-en">EBOOKS</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#footer" class="nav-link" data-section="footer">
+                        <span class="nav-label">
+                            <span class="lang-cz">KONTAKT</span>
+                            <span class="lang-en">CONTACT</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
             
             <!-- Jazykový přepínač v pravém rohu -->
             <div class="nav-language">
                 <button class="language-toggle active" id="cz-btn" onclick="changeLang('CZ')">CZ</button>
                 <button class="language-toggle" id="en-btn" onclick="changeLang('EN')">EN</button>
             </div>
+            
+            <!-- Hamburger menu tlačítko pro mobilní verzi -->
+            <button class="hamburger-btn" onclick="toggleHamburgerMenu()" aria-label="Otevřít menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </nav>
 
