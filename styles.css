@@ -1710,22 +1710,24 @@ body {
 
 /* ===== MOBILE TRANSFORM APPROACH ===== */
 @media (max-width: 768px) {
-    /* Remove/hide placeholder if it exists */
     .about-image-showcase {
         display: none !important;
     }
     
-    /* Pull Transformations section up over empty About space */
     .transformations-section {
-        margin-top: -4rem !important; /* Pull up by ~64px */
+        margin-top: -12rem !important; /* Much larger negative margin */
         position: relative !important;
         z-index: 2 !important;
     }
     
-    /* Ensure About content stays visible */
     .about-content {
         position: relative !important;
         z-index: 1 !important;
+    }
+    
+    /* Ensure no content overlap issues */
+    .about-section {
+        padding-bottom: 2rem !important; /* Minimal bottom padding */
     }
 }
 
