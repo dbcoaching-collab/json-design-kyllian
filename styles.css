@@ -116,34 +116,33 @@ body {
     /* Mobilní úprava pro main-content */
     @media (max-width: 768px) {
         .main-content {
-            margin-top: 70px !important; /* Méně mezery na mobilu */
+            margin-top: 60px !important;
         }
         
-        /* Oprava nadměrných mezer mezi sekcemi na mobilu */
         .about-section {
-            padding: 2rem 1rem !important; /* top: 2rem, right/left: 1rem, bottom: 1rem */
+            padding: 1rem 1rem 0.5rem !important;
         }
         
         .transformations-section {
-            padding: 1rem 1rem 2rem !important; /* top: 1rem, right/left: 1rem, bottom: 2rem */
+            padding: 0.5rem 1rem 1rem !important;
         }
         
         .testimonials-section {
-            padding: 2rem 1rem !important; /* top/bottom: 2rem, right/left: 1rem */
+            padding: 1rem 1rem !important;
         }
         
-        /* Snížení mezer v obsahu sekcí */
+        .section-title {
+            margin-bottom: 1rem !important;
+            font-size: 1.8rem !important;
+        }
+        
         .about-content {
-            gap: 2rem !important; /* Méně mezery mezi textem a obrázkem */
+            gap: 1rem !important;
         }
         
-        .about-description {
-            margin-bottom: 1.5rem !important; /* Méně mezery pod popisem */
-        }
-        
+        .about-description,
         .about-stats {
-            gap: 1.5rem !important; /* Méně mezery mezi statistikami */
-            margin-bottom: 1.5rem !important; /* Méně mezery pod statistikami */
+            margin-bottom: 1rem !important;
         }
     }
 
@@ -1579,17 +1578,18 @@ body {
         margin-bottom: var(--spacing-sm) !important; /* Minimální mezera mezi kartami */
     }
     
-    /* Stlačení všech sekcí na mobilu */
+    /* Stlačení všech sekcí na mobilu - ZAKOMENTOVÁNO kvůli konfliktům */
+    /*
     .hero-section {
-        height: auto !important; /* Automatická výška místo 100vh */
-        min-height: auto !important; /* Žádná minimální výška */
-        padding: 2rem 0 !important; /* Přesně 2cm padding */
-        margin-bottom: 2rem !important; /* Přesně 2cm mezera pod hero */
+        height: auto !important;
+        min-height: auto !important;
+        padding: 2rem 0 !important;
+        margin-bottom: 2rem !important;
     }
     
     .section {
-        padding: 2rem 0 !important; /* Přesně 2cm padding pro sekce */
-        margin-bottom: 2rem !important; /* Přesně 2cm mezera mezi sekcemi */
+        padding: 2rem 0 !important;
+        margin-bottom: 2rem !important;
     }
     
     .about-section,
@@ -1597,9 +1597,10 @@ body {
     .testimonials-section,
     .ebooks-section,
     .faq-section {
-        padding: 2rem 0 !important; /* Přesně 2cm padding pro všechny sekce */
-        margin-bottom: 2rem !important; /* Přesně 2cm mezera mezi sekcemi */
+        padding: 2rem 0 !important;
+        margin-bottom: 2rem !important;
     }
+    */
     
     /* Minimalizace mezer v textu */
     .hero-description {
