@@ -1686,7 +1686,7 @@ body {
     
     /* About sekce - dramatická redukce výšky */
     .about-section {
-        padding: 1rem !important; /* Minimal padding on all sides */
+        padding: 1rem 1rem 0.5rem 1rem !important; /* Minimal bottom padding */
         min-height: auto !important; /* Remove any min-height constraints */
         height: auto !important; /* Remove any fixed height */
     }
@@ -1694,6 +1694,17 @@ body {
     .about-content {
         margin: 0 !important; /* Remove margins from content */
         padding: 0 !important; /* Remove padding from content */
+        margin-bottom: 0 !important; /* Remove bottom margin from content */
+    }
+    
+    .about-text .btn {
+        margin-bottom: 0.5rem !important; /* Minimal space under button */
+    }
+    
+    /* Ensure no extra spacing in about elements */
+    .about-description,
+    .about-stats {
+        margin-bottom: 1rem !important;
     }
 }
 
