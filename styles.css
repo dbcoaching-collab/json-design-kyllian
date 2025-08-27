@@ -1677,6 +1677,28 @@ body {
 }
 
 /* DEBUG - najdi skutečný problém */
+/* Debug pro všechny viewporty */
+.about-section {
+    background: red !important;
+    border: 5px solid yellow !important;
+    padding: 5px !important;
+    margin: 0 !important;
+}
+
+.transformations-section {
+    background: blue !important;
+    border: 5px solid green !important;
+    padding: 5px !important;
+    margin: 0 !important;
+}
+
+/* Označ všechno mezi nimi */
+.about-section + * {
+    background: purple !important;
+    border: 5px solid orange !important;
+}
+
+/* Specifický debug pro mobil */
 @media (max-width: 768px) {
     .about-section {
         background: red !important;
