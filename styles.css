@@ -1715,7 +1715,7 @@ body {
     }
     
     .transformations-section {
-        margin-top: -30rem !important; /* Extreme negative margin for maximum gap closure */
+        margin-top: -20rem !important; /* Final negative margin for optimal gap closure */
         position: relative !important;
         z-index: 2 !important;
     }
