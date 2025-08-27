@@ -1520,15 +1520,15 @@ body {
     /* Oprava úzkého textu služeb na mobilu */
     .service-content {
         width: 100% !important; /* Plná šířka na mobilu */
-        padding: var(--spacing-sm) var(--spacing-sm) !important; /* Menší okraje */
+        padding: var(--spacing-xs) var(--spacing-xs) !important; /* Ještě menší okraje */
     }
     
     .service-description {
-        padding: 0 var(--spacing-xs) !important; /* Minimální okraje pro text */
+        padding: 0 !important; /* Žádné okraje pro text */
     }
     
     .service-features {
-        padding: 0 var(--spacing-xs) !important; /* Minimální okraje pro seznam */
+        padding: 0 !important; /* Žádné okraje pro seznam */
     }
 }
 
