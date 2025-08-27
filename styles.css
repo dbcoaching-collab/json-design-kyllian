@@ -117,16 +117,14 @@ body {
 
 /* ===== MOBILE SPACING OPTIMIZATION ===== */
 @media (max-width: 768px) {
-    /* ONLY modify spacing between these 2 sections */
     .about-section {
-        padding-bottom: 0.25rem !important; /* Minimal bottom spacing */
+        padding: 1rem 1rem 0.25rem 1rem !important; /* Complete override: top right bottom left */
     }
     
     .transformations-section {
-        padding-top: 0.25rem !important; /* Minimal top spacing */
+        padding: 0.25rem 1rem 1rem 1rem !important; /* Complete override: top right bottom left */
     }
     
-    /* Reduce section title margins */
     .about-section .section-title,
     .transformations-section .section-title {
         margin-bottom: 0.5rem !important;
