@@ -117,18 +117,39 @@ body {
 
 /* ===== MOBILE SPACING OPTIMIZATION ===== */
 @media (max-width: 768px) {
-    .about-section {
+    /* Zvýšená specificita pro About sekci */
+    body .main-content .about-section {
         padding: 1rem 1rem 0.25rem 1rem !important; /* Complete override: top right bottom left */
+        padding-top: 1rem !important;
+        padding-right: 1rem !important;
+        padding-bottom: 0.25rem !important;
+        padding-left: 1rem !important;
     }
     
-    .transformations-section {
+    /* Zvýšená specificita pro Transformations sekci */
+    body .main-content .transformations-section {
         padding: 0.25rem 1rem 1rem 1rem !important; /* Complete override: top right bottom left */
+        padding-top: 0.25rem !important;
+        padding-right: 1rem !important;
+        padding-bottom: 1rem !important;
+        padding-left: 1rem !important;
     }
     
-    .about-section .section-title,
-    .transformations-section .section-title {
+    /* Zvýšená specificita pro nadpisy */
+    body .main-content .about-section .section-title,
+    body .main-content .transformations-section .section-title {
         margin-bottom: 0.5rem !important;
     }
+    
+    /* DEBUG: Viditelné změny pro ověření */
+    body .main-content .about-section {
+        border: 3px solid red !important; /* DEBUG: Červený border pro About */
+    }
+    
+    body .main-content .transformations-section {
+        border: 3px solid blue !important; /* DEBUG: Modrý border pro Transformations */
+    }
+}
 }
 
 /* ===== UPDATED NAVIGATION - HORIZONTAL TOP LAYOUT ===== */
@@ -1652,5 +1673,28 @@ body {
         margin: 0 0 0 var(--spacing-sm) !important;
         display: flex !important;
         justify-content: flex-end !important;
+    }
+}
+
+/* DEBUG - najdi skutečný problém */
+@media (max-width: 768px) {
+    .about-section {
+        background: red !important;
+        border: 5px solid yellow !important;
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+    
+    .transformations-section {
+        background: blue !important;
+        border: 5px solid green !important;
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+    
+    /* Označ všechno mezi nimi */
+    .about-section + * {
+        background: purple !important;
+        border: 5px solid orange !important;
     }
 }
