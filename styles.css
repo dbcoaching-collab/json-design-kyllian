@@ -141,15 +141,7 @@ body {
         margin-bottom: 0.5rem !important;
     }
     
-    /* DEBUG: Viditelné změny pro ověření */
-    body .main-content .about-section {
-        border: 3px solid red !important; /* DEBUG: Červený border pro About */
-    }
-    
-    body .main-content .transformations-section {
-        border: 3px solid blue !important; /* DEBUG: Modrý border pro Transformations */
-    }
-}
+
 }
 
 /* ===== UPDATED NAVIGATION - HORIZONTAL TOP LAYOUT ===== */
